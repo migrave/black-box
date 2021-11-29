@@ -1,0 +1,31 @@
+- default_parameters:
+    max_frequency: 30
+    # maximum database size in MB
+    max_database_size: 102400
+    # whether or not to create a new DB after max size is reached
+    split_database: false
+    db_name: 'qt_logs'
+    db_export_dir: '~/black-box-logs'
+- ros:
+    ros_master_uri: localhost
+    topics:
+        - topic:
+            name: /migrave/event
+            type: migrave_ros_msgs/Event
+            variable_names: []
+            max_frequency: 10
+            metadata:
+                ros:
+                    topic_name: /migrave/event
+                    msg_type: migrave_ros_msgs/Event
+                    direct_msg_mapping: true
+        - topic:
+            name: /migrave_perception/openface_ros/faces
+            type: migrave_ros_msgs/Faces
+            variable_names: []
+            max_frequency: 30
+            metadata:
+                ros:
+                    topic_name: /migrave_perception/openface_ros/faces
+                    msg_type: migrave_ros_msgs/Faces
+                    direct_msg_mapping: true
